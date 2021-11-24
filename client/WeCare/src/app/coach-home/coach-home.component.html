@@ -1,0 +1,42 @@
+<nav class="navbar navbar-dark fixed-top " style="background-color: black;">
+    <div class="navbar navbar-expand-md container">
+        <div class="navbar-header mr-auto">
+          <a class="navbar-brand" >WeCare</a>
+        </div>                      
+          <ul  class="nav navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" [routerLink]="['/coachProfile']" >View Profile</a></li>
+            <li class="nav-item"><a class="nav-link" [routerLink]="['/coachHome']">My Schedules</a></li>     
+            <li class="nav-item" ><a class="nav-link">Call Us: 080 2233447</a></li>    
+            <li class="nav-item"><a  class="nav-link" (click)="coachLogout()" >Logout</a></li>
+          </ul>            
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<div *ngIf="schedules " class="row justify-content-center">
+    <br><br>
+    <div *ngFor="let obj of schedules" class="col-4 m-3 card justify-content-around" 
+            style="background-color:black;">
+        <div class="card-body">
+            <div class="row justify-content-center">
+                <h3>Appointment Date:</h3>
+                <h4>{{obj.AppointmentDate | date : 'fullDate' }}</h4>
+            </div>
+            <br>
+            <div class=" row justify-content-center">
+                <h5>Slot: {{obj.Slot}}</h5>                
+            </div>   
+            <div class=" row justify-content-center">
+                <h6>Booking Id: {{obj.BookingId}}</h6>   
+            </div>            
+            <div class=" row justify-content-center">        
+                <h6>User Id: {{obj.UserId}}</h6>  
+            </div>       
+        </div>        
+    </div>
+</div>
+<div *ngIf="errorFetch" class=" row justify-content-center ">
+        <h2>Could Not Find any Bookings</h2>
+</div>

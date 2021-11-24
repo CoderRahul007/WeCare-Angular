@@ -1,0 +1,14 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+  }
+.pad {
+    padding-top: 5px;
+}
+body{
+overflow-x: hidden; 
+}

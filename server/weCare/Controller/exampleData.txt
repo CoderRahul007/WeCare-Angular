@@ -1,0 +1,36 @@
+{
+    "name":"Satna",
+    "password":"setna@123",
+    "dateOfBirth":"1996-01-01",
+    "gender":"M",
+    "email":"rahul@gmail.com",
+    "pincode":"208005",
+    "city":"Kan",
+    "state":"uttar",
+    "country":"India",
+    "mobileNumber":"1234567899"
+}
+
+{
+    "id":"UI-0001",
+    "password":"setna@123"
+}
+
+{
+    "name":"John",
+    "password":"john@123",
+    "dateOfBirth":"1996-01-01",
+    "gender":"M",
+    "mobileNumber":"1234567891",
+    "speciality":"Depresseion Issues"
+}
+
+{
+    "id":"CI-0001",
+    "password":"john@123"
+}
+
+{
+    "Slot":"9 Am to 10 AM",
+    "DateOfAppointment":"2020-09-03",
+}

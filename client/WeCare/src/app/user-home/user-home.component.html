@@ -1,0 +1,33 @@
+<nav class="navbar navbar-dark fixed-top " style="background-color: black;">
+    <div class="navbar navbar-expand-md container">
+        <div class="navbar-header mr-auto">
+          <a class="navbar-brand" >WeCare</a>
+        </div>              
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" [routerLink]="['/userProfile']">View Profile</a></li>
+            <li class="nav-item"><a class="nav-link" [routerLink]="['/userAppointments']">My Appointments</a></li>     
+            <li class="nav-item" ><a class="nav-link">Call Us: 080 2233447</a></li>    
+            <li class="nav-item"><a  class="nav-link" (click)="userLogout()">Logout</a></li>
+          </ul>            
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<div class="row justify-content-center">
+    <div *ngFor="let coach of coaches" class="card shadow flex-row m-3 justify-content-around col-4 flex-wrap">
+        <div class="card-header justify-content-center " style="background-color: white;">           
+            <img src="assets/female.png" style="border-radius: 50%; height:70px" alt="No Image">         
+        </div>
+        <div class="card-block px-2 m-3">
+            <h4>{{coach.Name}}</h4>
+            <h4>{{coach.CoachId}}</h4>           
+            <h6>Mobile Number:{{coach.MobileNumber}}</h6>
+            <h6>Speciality:{{coach.Speciality}}</h6>
+            <br>
+            <button type="button" class="btn btn-primary" (click)="bookAppointment(coach.CoachId)">Book Appointment</button>
+        </div>       
+        <br>   
+    </div>
+</div>

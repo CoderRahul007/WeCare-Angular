@@ -1,0 +1,38 @@
+<nav class="navbar navbar-dark fixed-top " style="background-color: black;">
+  <div class="navbar navbar-expand-md container">
+      <div class="navbar-header mr-auto">
+        <a class="navbar-brand" >WeCare</a>
+      </div>                    
+        <ul  class="nav navbar-nav ml-auto">                
+          <li class="nav-item" ><a class="nav-link">Call Us: 080 2233447</a></li>                
+        </ul>   
+  </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<div class="container col-3 p-3 align-content-center" style="background-color: black;">
+    <div class="row justify-content-center">
+      <img src="assets/User LogIn.jpg" style="height:40px">
+      <h4>Login as a User</h4>
+    </div>
+    <br>
+    <div class="container">
+      <form [formGroup]="userLoginForm" >
+        <div class="form-group">       
+          <input type="text" class="form-control" formControlName="id" placeholder="User Id">
+          <p *ngIf="userLoginForm.controls.id.errors && userLoginForm.controls.id.touched" style="color:red">User Id is a mandatory field!</p>
+        </div>
+        <div class="form-group">       
+          <input type="password" class="form-control" formControlName="password" placeholder="Password">
+          <p *ngIf="userLoginForm.controls.password.errors && userLoginForm.controls.password.touched" style="color:red">Password should have 5 to 10 characters!</p>
+        </div>      
+        <div class="row justify-content-center">
+          <button type="submit" class="btn btn-primary" style="width: 90%;" (click)="userLogin()">Login</button>
+      </div>
+      <span style="color:red" *ngIf="!loginSuccess &&  submitted">Invalid User Id or Password</span>
+      </form>
+    </div>
+  <br/>
+</div>

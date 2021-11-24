@@ -1,0 +1,95 @@
+<nav class="navbar navbar-dark fixed-top " style="background-color: black;">
+    <div class="navbar navbar-expand-md container">
+        <div class="navbar-header mr-auto">
+          <a class="navbar-brand" >WeCare</a>
+        </div>              
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" [routerLink]="['/userProfile']">View Profile</a></li>
+            <li class="nav-item"><a class="nav-link" [routerLink]="['/userAppointments']">My Appointments</a></li>     
+            <li class="nav-item" ><a class="nav-link">Call Us: 080 2233447</a></li>    
+            <li class="nav-item"><a  class="nav-link" (click)="userLogout()">Logout</a></li>
+          </ul>            
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<div *ngIf="! bookSuccess" class="row justify-content-center">
+    <br><br>
+    <div  class="col-sm-5 m-3 card justify-content-around" 
+            style="background-color:black;">
+        <div class="row m-4 justify-content-center">
+            <img src="assets/Notepad_icon.svg.png" style="height:35px ;">
+            <h4>Proceed With Your Appointment</h4>
+        </div>
+        <div class="card-body">
+            <div class="row justify-content-center">                
+               <form [formGroup]="bookAppointmentForm">                    
+                        <div class="form-group">
+                            <label>Date of Appointment</label>
+                            <input type="date" style="width: 100%;" class="form-control" formControlName="dateOfAppointment" >
+                            <p *ngIf="bookAppointmentForm.controls.dateOfAppointment.errors && bookAppointmentForm.controls.dateOfAppointment.touched" 
+                                style="color:red">Date should be any upcoming 7 days!</p>
+                        </div>   
+                        <label>Preferred Slot</label>                 
+                    <div class="row flex-start">                                               
+                        <div class="row flex-wrap">
+                            <div class="form-check">
+                                <label class="form-check-label">                           
+                                    <input type="radio" id="9to10" style="height:15px" class="form-control" formControlName="slot"  value="9 AM to 10 AM"> 
+                                    9 AM to 10 AM
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">  
+                                    <input type="radio" id="10to11" style="height:15px" class="form-control" formControlName="slot" value="10 AM to 11 AM"> 
+                                    10 AM to 11 AM 
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">          
+                                    <input type="radio" id="11to12" style="height:15px" class="form-control" formControlName="slot" value="11 AM to 12 PM">
+                                    11 AM to 12 PM        
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">          
+                                    <input type="radio" id="2to3" style="height:15px" class="form-control" formControlName="slot" value="2 PM to 3 PM"> 
+                                    2 PM to 3 PM 
+                                </label>
+                            </div>                            
+                            <div class="form-check">
+                                <label class="form-check-label">           
+                                    <input type="radio" id="3to4" style="height:15px" class="form-control" formControlName="slot" value="3 PM to 4 PM"> 
+                                    3 PM to 4 PM  
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">                                      
+                                    <input type="radio" id="4to5" style="height:15px" class="form-control" formControlName="slot" value="4 PM to 5 PM"> 
+                                    4 PM to 5 PM
+                                </label>
+                            </div>
+                            <p *ngIf="bookAppointmentForm.controls.slot.errors && bookAppointmentForm.controls.slot.touched" style="color:red">This field is required!</p>                        
+                         </div>   
+                    </div>
+                    <br>
+                    <div class="row justify-content-center">
+                        <button type="submit" class="btn btn-primary" style="width: 90%;" (click)="bookAppointment()">Confirm Your Appointment</button>
+                    </div>
+               </form>
+            </div>       
+        </div>        
+    </div>
+</div>
+<div *ngIf="bookSuccess" class="row justify-content-center">
+    <div class="card  shadow col-4 m-3 p-2" style="background-color:black;">        
+        <div class="card-block justify-content-center px-3 m-3">
+            <h6>Your Appointment is scheduled successfully</h6>                     
+        </div>        
+        <div class="row justify-content-center m-2">
+            <button type="button" class="btn btn-primary" (click)="goBack()">Go Back</button>  
+        </div>
+    </div>
+</div>
